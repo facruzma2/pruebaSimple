@@ -19,7 +19,8 @@ public class StepDefs {
 
     @Given("Launch website")
     public void launchQAScript() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.selenium.dev/");
 
@@ -29,7 +30,7 @@ public class StepDefs {
     public void qascriptPageIsDisplayedToUser() {
 
         String strTitle = driver.getTitle();
-        Assert.assertEquals(strTitle, "SeleniumHQ Browser Automation");
+        Assert.assertEquals("Selenium",strTitle);
         driver.quit();
     }
 
@@ -48,7 +49,7 @@ public class StepDefs {
             WebDriver bs_driver = new RemoteWebDriver(new URL(URL), caps);
             bs_driver.get("https://www.selenium.dev/");
             String strTitle = bs_driver.getTitle();
-            Assert.assertEquals(strTitle, "SeleniumHQ Browser Automation");
+            Assert.assertEquals("Selenium",strTitle);
             bs_driver.quit();
         } catch (MalformedURLException e) {
             e.printStackTrace();
